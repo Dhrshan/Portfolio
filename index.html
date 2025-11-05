@@ -268,6 +268,50 @@
       .profile-wrap{width:180px;height:180px}
       .ring{width:180px;height:180px}
     }
+    /* ---------- Lightbox (Profile Popup) ---------- */
+.lightbox {
+  position: fixed;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.85);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  backdrop-filter: blur(8px);
+  z-index: 3000;
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.3s ease;
+}
+
+.lightbox.active {
+  opacity: 1;
+  pointer-events: all;
+}
+
+.lightbox img {
+  max-width: 90%;
+  max-height: 85%;
+  border-radius: 16px;
+  box-shadow: 0 10px 40px rgba(0,0,0,0.6);
+  border: 2px solid rgba(255,255,255,0.2);
+}
+
+.lightbox::after {
+  content: "✖";
+  position: fixed;
+  top: 24px;
+  right: 30px;
+  font-size: 30px;
+  color: white;
+  cursor: pointer;
+  font-weight: bold;
+  transition: opacity 0.3s;
+}
+
+.lightbox::after:hover {
+  opacity: 0.6;
+}
+
 
   </style>
 </head>
@@ -404,6 +448,11 @@ PDF/Excel/JSON, enabling users to create dynamic business reports .
         </div>
       </div>
     </section>
+    <!-- Lightbox Popup -->
+<div class="lightbox" id="lightbox">
+  <img id="lightboxImg" src="" alt="Profile Preview">
+</div>
+
 
     <footer>
       © Priyadharshan — Built with ❤️  <span id="year"></span>
@@ -475,12 +524,24 @@ PDF/Excel/JSON, enabling users to create dynamic business reports .
     // Accessibility: enable keyboard theme toggle (Enter key)
     themeToggle.addEventListener('keyup', (e)=>{ if(e.key === 'Enter') toggleTheme(); });
 
-    // Profile image click to open in new tab (preview)
-    document.querySelector('.profile').addEventListener('click', (e) => {
-  e.preventDefault(); // stops the page from jumping to top
-  const img = document.getElementById('profileImg').src; // ✅ no need to mention path
-  if (img) window.open(img, '_blank'); // opens in new tab
+    // ---------- Profile Image Lightbox ----------
+const profile = document.querySelector('.profile');
+const lightbox = document.getElementById('lightbox');
+const lightboxImg = document.getElementById('lightboxImg');
+
+profile.addEventListener('click', (e) => {
+  e.preventDefault();
+  const imgSrc = document.getElementById('profileImg').src;
+  lightboxImg.src = imgSrc;
+  lightbox.classList.add('active');
 });
+
+lightbox.addEventListener('click', (e) => {
+  if (e.target === lightbox || e.target === lightboxImg || e.target.tagName === 'DIV') {
+    lightbox.classList.remove('active');
+  }
+});
+
 
     document.querySelectorAll('a[href^="#"]').forEach(anchor => {
   anchor.addEventListener("click", function(e) {
@@ -495,6 +556,7 @@ PDF/Excel/JSON, enabling users to create dynamic business reports .
   </script>
 </body>
 </html>
+
 
 
 
