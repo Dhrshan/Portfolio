@@ -361,15 +361,14 @@ dashboard for visualizing predictions and insights.</p>
           <div class="project-title">Resume Builder</div>
           <p>Developed a full-stack Resume Builder using Node.js, Express, and MongoDB with dynamic
 templates, drag-and-drop sections, and automated PDF export, enabling users to create
-and manage professional resumes with stored history.
+and manage professional resumes with stored history
 .</p>
           <p style="margin-top:10px"><a href="https://github.com/Dhrshan/Resume-Builder" target="_blank" rel="noopener" class="secondary">View on GitHub</a></p>
         </article>
 
          <article class="card">
           <div class="project-title">Simons-Game</div>
-          <p>An implementation of the classic Simon game where players need to replicate a sequence of colors and sounds. Features increasing difficulty levels and a responsive user interface.
-.</p>
+          <p>An implementation of the classic Simon game where players need to replicate a sequence of colors and sounds. Features increasing difficulty levels and a responsive user interface.</p>
           <p style="margin-top:10px"><a href="https://github.com/Dhrshan/Simon-game" target="_blank" rel="noopener" class="secondary">View on GitHub</a></p>
         </article>
     </section>
@@ -407,7 +406,7 @@ PDF/Excel/JSON, enabling users to create dynamic business reports .
     </section>
 
     <footer>
-      © Priyadharshan — Built with ❤️ — <span id="year"></span>
+      © Priyadharshan — Built with ❤️  <span id="year"></span>
     </footer>
   </main>
 
@@ -427,42 +426,41 @@ PDF/Excel/JSON, enabling users to create dynamic business reports .
     }
     themeToggle.addEventListener('click', toggleTheme);
 
-    // ---------- Contact form (front-end only)
-    const sendBtn = document.getElementById('sendBtn');
-    const copyBtn = document.getElementById('copyBtn');
-    const toast = document.getElementById('toast');
+    // // ---------- Contact form (front-end only)
+    // const sendBtn = document.getElementById('sendBtn');
+    // const copyBtn = document.getElementById('copyBtn');
+    // const toast = document.getElementById('toast');
 
-    function showToast(msg){
-      toast.textContent = msg;
-      toast.style.display = 'block';
-      toast.style.opacity = '1';
-      setTimeout(()=>{ toast.style.opacity='0'; toast.style.display='none'; }, 2500);
-    }
+    // function showToast(msg){
+    //   toast.textContent = msg;
+    //   toast.style.display = 'block';
+    //   toast.style.opacity = '1';
+    //   setTimeout(()=>{ toast.style.opacity='0'; toast.style.display='none'; }, 2500);
+    // }
 
-    sendBtn.addEventListener('click', ()=>{
-      const name = document.getElementById('name').value.trim();
-      const email = document.getElementById('email').value.trim();
-      const message = document.getElementById('message').value.trim();
-      if(!name || !email || !message){
-        showToast('Please fill all fields first');
-        return;
-      }
-      // Simulate send (front-end only)
-      showToast('Message prepared — front-end only (no backend).');
-      // Optionally open mailto with prefilled content for quick send:
-      // window.location.href = `mailto:your.email@example.com?subject=Contact from ${encodeURIComponent(name)}&body=${encodeURIComponent(message + '\\n\\n' + email)}`;
-    });
+    // sendBtn.addEventListener('click', ()=>{
+    //   const name = document.getElementById('name').value.trim();
+    //   const email = document.getElementById('email').value.trim();
+    //   const message = document.getElementById('message').value.trim();
+    //   if(!name || !email || !message){
+    //     showToast('Please fill all fields first');
+    //     return;
+    //   }
+    //   // Simulate send (front-end only)
+    //   showToast('Message prepared — front-end only (no backend).');
+      
+    // });
 
-    copyBtn.addEventListener('click', (e)=>{
-      e.preventDefault();
-      const message = `Name: ${document.getElementById('name').value}\nEmail: ${document.getElementById('email').value}\n\nMessage:\n${document.getElementById('message').value}`;
-      navigator.clipboard && navigator.clipboard.writeText(message)
-        .then(()=>showToast('Message copied to clipboard ✔'))
-        .catch(()=>showToast('Could not copy — maybe unsupported'));
-    });
+    // copyBtn.addEventListener('click', (e)=>{
+    //   e.preventDefault();
+    //   const message = `Name: ${document.getElementById('name').value}\nEmail: ${document.getElementById('email').value}\n\nMessage:\n${document.getElementById('message').value}`;
+    //   navigator.clipboard && navigator.clipboard.writeText(message)
+    //     .then(()=>showToast('Message copied to clipboard ✔'))
+    //     .catch(()=>showToast('Could not copy — maybe unsupported'));
+    // });
 
-    // ---------- Small helpers
-    document.getElementById('year').textContent = new Date().getFullYear();
+    // // ---------- Small helpers
+    // document.getElementById('year').textContent = new Date().getFullYear();
 
     // Smooth reveal on scroll (basic)
     const observer = new IntersectionObserver((entries)=>{
@@ -495,6 +493,7 @@ PDF/Excel/JSON, enabling users to create dynamic business reports .
   </script>
 </body>
 </html>
+
 
 
 
