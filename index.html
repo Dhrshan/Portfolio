@@ -476,10 +476,12 @@ PDF/Excel/JSON, enabling users to create dynamic business reports .
     themeToggle.addEventListener('keyup', (e)=>{ if(e.key === 'Enter') toggleTheme(); });
 
     // Profile image click to open in new tab (preview)
-    document.querySelector('.profile').addEventListener('click', ()=>{
-      const img = document.getElementById('profileImg').src;
-      if(img) window.open(img, '_blank');
-    });
+    document.querySelector('.profile').addEventListener('click', (e) => {
+  e.preventDefault(); // stops the page from jumping to top
+  const img = document.getElementById('profileImg').src; // ✅ no need to mention path
+  if (img) window.open(img, '_blank'); // opens in new tab
+});
+
     document.querySelectorAll('a[href^="#"]').forEach(anchor => {
   anchor.addEventListener("click", function(e) {
     e.preventDefault();
@@ -493,6 +495,7 @@ PDF/Excel/JSON, enabling users to create dynamic business reports .
   </script>
 </body>
 </html>
+
 
 
 
