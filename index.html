@@ -398,17 +398,6 @@ PDF/Excel/JSON, enabling users to create dynamic business reports .
 </div></div>
       </div>
     </section>
-
-
-        <div class="card">
-          <strong>Quick links</strong>
-          <ul style="margin-top:12px;line-height:1.9;color:var(--muted)">
-            <li><a href="resume/resume.pdf" download class="secondary">Download Resume</a></li>
-            <li><a href="https://github.com/Dhrshan" target="_blank" rel="noopener" class="secondary">GitHub</a></li>
-            <li><a href="https://www.linkedin.com/in/priyadharshan-s-50a042282/" target="_blank" rel="noopener" class="secondary">LinkedIn</a></li>
-          </ul>
-        </div>
-
         <div class="card">
           <strong>Location</strong>
           <p style="margin-top:8px">Madurai, Tamil Nadu, India</p>
@@ -438,24 +427,6 @@ PDF/Excel/JSON, enabling users to create dynamic business reports .
       localStorage.setItem('pref-theme', cur);
     }
     themeToggle.addEventListener('click', toggleTheme);
-
-    // ---------- Typing effect (roles)
-    const roles = ['Java Developer','Web Developer','Machine Learning Enthusiast','Problem Solver',];
-    const typingEl = document.getElementById('typing');
-    let roleIndex = 0, charIndex = 0, forward = true;
-
-    function typeLoop(){
-      const current = roles[roleIndex];
-      if(forward){
-        typingEl.textContent = current.slice(0,++charIndex);
-        if(charIndex === current.length){ forward=false; setTimeout(typeLoop,1200); return; }
-      } else {
-        typingEl.textContent = current.slice(0,--charIndex);
-        if(charIndex === 0){ forward=true; roleIndex = (roleIndex+1)%roles.length; setTimeout(typeLoop,500); return; }
-      }
-      setTimeout(typeLoop, 80);
-    }
-    typeLoop();
 
     // ---------- Contact form (front-end only)
     const sendBtn = document.getElementById('sendBtn');
@@ -525,6 +496,7 @@ PDF/Excel/JSON, enabling users to create dynamic business reports .
   </script>
 </body>
 </html>
+
 
 
 
