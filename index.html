@@ -483,19 +483,6 @@ document.querySelector('.primary').addEventListener('click', () => {
       setTimeout(()=>{ toast.style.opacity='0'; toast.style.display='none'; }, 2500);
     }
 
-    // sendBtn.addEventListener('click', ()=>{
-    //   const name = document.getElementById('name').value.trim();
-    //   const email = document.getElementById('email').value.trim();
-    //   const message = document.getElementById('message').value.trim();
-    //   if(!name || !email || !message){
-    //     showToast('Please fill all fields first');
-    //     return;
-    //   }
-    //   // Simulate send (front-end only)
-    //   showToast('Message prepared — front-end only (no backend).');
-      
-    // });
-
     copyBtn.addEventListener('click', (e)=>{
       e.preventDefault();
       const message = `Name: ${document.getElementById('name').value}\nEmail: ${document.getElementById('email').value}\n\nMessage:\n${document.getElementById('message').value}`;
@@ -557,6 +544,7 @@ document.querySelector('.primary').addEventListener('click', () => {
 </div>
 </body>
 </html>
+
 
 
 
